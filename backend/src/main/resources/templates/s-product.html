@@ -12,12 +12,33 @@
 
 	<header th:replace="blocks/header::header"></header>
 
-	<section id="shop-header">
-		<h2>#StayHome</h2>
-		<p>Save more with promo codes (up to 70%)</p>
-	</section>
+    <section id="pro-details" class="section-p1">
+        <div class="single-pro-image">
+            <img th:src="${product.imageURL}" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/Tshirt</h6>
+            <h4 th:text="${product.name}"/>
+            <h2 th:text="'$' + ${product.price}"/>
+            <select>
+                <option>Select Size</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+            <input type="number" value="1" min="1" oninput="this.value = 
+             Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1">
+            <button class="normal">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span th:text="${product.description}"/>
+        </div>
+    </section>
 
-	<section id="product" class="section-p1 product-main-banner">
+    <section id="product" class="section-p1 product-main-banner">
+		<h2>Featured Products</h2>
+		<p>New Fall collection</p>
 		<div class="products-container">
 			<div th:each="prod : ${products}" class="product">
 				<img th:src="${prod.imageURL}">
@@ -38,11 +59,6 @@
 		</div>
 	</section>
 
-    <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#"><i class="fa fa-long-arrow-alt-right"></i></a>
-    </section>
 
 	<section th:replace="blocks/newsletter::newsletter"/>
 

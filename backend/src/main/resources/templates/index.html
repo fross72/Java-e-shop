@@ -9,32 +9,15 @@
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-	<section id="header">
-		<a href="#"><img src="image/logo.png" class="logo" alt="Logo"></a>
-		<div>
-			<ul id="navbar">
-				<a href="#" id="close"><i class="fa fa-times"></i></a>
-				<li><a class ="active" href="index.html">Home</a></li>
-				<li><a href="shop.html">Shop</a></li>
-				<li><a href="blog.html">Blog</a></li>
-				<li><a href="Sign.html">Sign In</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="contact.html">Contact us</a></li>
-				<li id="lg-cart"><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
-			</ul>
-		</div>
-		<div id="mobile">
-			<a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-			<i id="bar" class="fas fa-outdent"></i>
-		</div>
-	</section>
+
+	<header th:replace="blocks/header::header"></header>
 
 	<section id="hero">
 		<h4>Trade in offer</h4>
 		<h2>Amazing value deals</h2>
 		<h1>On every product</h1>
 		<p>Save more with promo codes (up to 70%)</p>
-		<button><a href="#" >Shop</a></button>
+		<button><a th:href="'/shop'" >Shop</a></button>
 	</section>
 
 	<section id="features" class="section-p1">
@@ -60,11 +43,11 @@
 		<h2>Featured products</h2>
 		<p>Top sellers</p>
 		<div class="products-container">
-			<div class="product">
-				<img src="image/products/Tshirt1.jpg">
+			<div th:each="prod : ${products}" class="product">
+				<img th:src="${prod.imageURL}">
 				<div class="description">
-					<span>adidas</span>
-					<h5>Tshirt Autumn collection</h5>
+					<span th:text="${prod.description}"/>
+					<h5 th:text="${prod.name}"/>
 					<div class="stars">
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
@@ -72,121 +55,9 @@
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
 					</div>
-					<h4>$30</h4>
+					<h4 th:text="'$' + ${prod.price}"/>
 				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt2.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt3.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt4.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt5.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt6.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt7.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt8.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+				<a th:href="'/shop/' + ${prod.id}"><i class="fas fa-shopping-cart cart"></i></a>
 			</div>
 		</div>
 	</section>
@@ -201,11 +72,11 @@
 		<h2>New arrivals</h2>
 		<p>New Fall collection</p>
 		<div class="products-container">
-			<div class="product">
-				<img src="image/products/Tshirt1.jpg">
+			<div th:each="prod : ${products}" class="product">
+				<img th:src="${prod.imageURL}">
 				<div class="description">
-					<span>adidas</span>
-					<h5>Tshirt Autumn collection</h5>
+					<span th:text="${prod.description}"/>
+					<h5 th:text="${prod.name}"/>
 					<div class="stars">
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
@@ -213,121 +84,9 @@
 						<i class="fas fa-star"></i>
 						<i class="fas fa-star"></i>
 					</div>
-					<h4>$30</h4>
+					<h4 th:text="'$' + ${prod.price}"/>
 				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt2.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt3.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt4.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt5.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt6.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt7.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-			</div>
-			<div class="product">
-				<img src="image/products/Tshirt8.jpg">
-				<div class="description">
-					<span>adidas</span>
-					<h5>Orange Tshirt Autumn collection</h5>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<h4>$30</h4>
-				</div>
-				<a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+				<a th:href="'/shop/' + ${prod.id}"><i class="fas fa-shopping-cart cart"></i></a>
 			</div>
 		</div>
 	</section>
@@ -362,67 +121,9 @@
 		</div>
 	</section>
 
-	<section id="newsletter" class="section-p1 section-m1">
-		<div class="newstext">
-			<h4>Sign up for newsletters</h4>
-			<p>Get E-mail updates about our latest supplies and <span>Special offers.</span></p>
-		</div>
-		<div class="form">
-			<input type="text" placeholder="Your E-mail address">
-			<button class="normal">Sign up</button>
-		</div>
-	</section>
+	<section th:replace="blocks/newsletter::newsletter"/>
 
-	<footer class="section-p1">
-		<div class="column">
-			<img src="image/logo.png" alt="logo" class="Logo footer-logo">
-			<h4>Contact</h4>
-			<p><strong>Adress:</strong> 562 Wellingtong road,Street 32, San-Francisco</p>
-			<p><strong>Phone:</strong> +01 2222 365</p>
-			<p><strong>Hours:</strong> 10:00-18:00, Mon-Fri</p>
-			<div class="follow">
-			<h4>Follow us</h4>
-			<div class="icons">
-				<i class="fab fa-facebook"></i>
-				<i class="fab fa-twitter"></i>
-				<i class="fab fa-youtube"></i>
-			</div>	
-			</div>
-		</div>
-
-		<div class="column">
-			<h4>About</h4>
-			<a href="#">About us</a>
-			<a href="#">Delivery information</a>
-			<a href="#">Privacy policy</a>
-			<a href="#">Terms & Conditions</a>
-			<a href="#">Contact us</a>
-		</div>
-
-		<div class="column">
-			<h4>My account</h4>
-			<a href="#">Sign In</a>
-			<a href="#">View Cart</a>
-			<a href="#">My Wishlist</a>
-			<a href="#">Track My Orders</a>
-			<a href="#">Help</a>
-		</div>
-
-		<div class="column install">
-			<h4>Install App</h4>
-			<p>From App Store of Google Play</p>
-			<div class="row">
-				<img src="image/app.png">
-				<img src="image/play.png">
-			</div>
-			<p>Secured Payment Gateways</p>
-			<img src="image/pay.png" class="payment">
-		</div>
-
-		<div class="copyright">
-			<p>© - 2022</p>
-		</div>
-	</footer>
+	<footer th:replace="blocks/footer::footer"></footer>
 
 <script src="script.js"></script>
 </body>
